@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="file" class="ch.qos.logback.core.FileAppender">
+        <file>C:\java\logs.log</file>
+        <append>true</append>
+        <encoder>
+            <Pattern>%date %level [%thread] %logger{10} [%file:%line] %msg%n</Pattern>
+        </encoder>
+    </appender>
+    <appender name="sout" class="ch.qos.logback.core.ConsoleAppender">
+       <encoder>
+            <Pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</Pattern>
+       </encoder>
+    </appender>
+    <logger name="logger.info" level="info" >
+        <appender-ref ref="sout" />
+    </logger>
+    <logger name="logger.warn" level="warn" >
+            <appender-ref ref="sout" />
+    </logger>
+    <logger name="logger.error" level="error">
+        <appender-ref ref="file" />
+    </logger>
+</configuration>
